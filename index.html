@@ -39,9 +39,11 @@
         <h2 class="card-title">今日任务 <span class="muted" id="task-day-label"></span></h2>
         <ul class="task-list" id="task-list"></ul>
         <div class="add-task">
-          <input type="text" id="new-task-input" placeholder="添加一条额外任务…" />
+          <select id="new-task-subject"></select>
+          <input type="text" id="new-task-input" placeholder="添加一条任务…" />
           <button id="add-task-btn">＋</button>
         </div>
+        <p class="muted" style="margin:8px 0 0;">点任务右侧 ✎ 可改文字，点 × 删除；每天默认 4 条也可随意改。</p>
       </div>
 
       <div class="card">
@@ -62,13 +64,21 @@
         <div id="phase-list"></div>
       </div>
       <div class="card">
-        <h2 class="card-title">查看某一天</h2>
+        <h2 class="card-title">查看 / 编辑某一天</h2>
         <div class="day-picker">
           <button id="day-prev">‹</button>
           <input type="date" id="day-picker" />
           <button id="day-next">›</button>
         </div>
         <div id="day-detail"></div>
+      </div>
+      <div class="card">
+        <h2 class="card-title">我的自定义计划</h2>
+        <ul class="task-list" id="plan-list"></ul>
+        <div class="add-task">
+          <input type="text" id="new-plan-input" placeholder="添加计划/目标，如：10/15前完成线代…" />
+          <button id="add-plan-btn">＋</button>
+        </div>
       </div>
     </section>
 
