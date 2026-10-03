@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#1d4ed8" />
+  <title>考研每日工作台 · 西财金融专硕</title>
+  <link rel="manifest" href="manifest.json" />
+  <link rel="apple-touch-icon" href="icons/icon-192.png" />
+  <link rel="icon" href="icons/icon-192.png" type="image/png" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="topbar-title">考研每日工作台</div>
+    <div class="topbar-sub" id="topbar-date">—</div>
+    <div class="countdown-pill" id="countdown-pill">—</div>
+  </header>
+
+  <main>
+    <!-- ============ 今日 ============ -->
+    <section class="view active" id="view-today">
+      <div class="card hero-card">
+        <div class="hero-count" id="hero-count">—</div>
+        <div class="hero-label">距离考试还有</div>
+        <div class="hero-day" id="hero-day">—</div>
+        <div class="hero-sub" id="hero-sub">—</div>
+      </div>
+
+      <div class="progress-wrap card">
+        <div class="progress-head">
+          <span>今日完成度</span>
+          <span id="today-percent">0%</span>
+        </div>
+        <div class="progress-bar"><div class="progress-fill" id="today-fill"></div></div>
+      </div>
+
+      <div class="card">
+        <h2 class="card-title">今日任务 <span class="muted" id="task-day-label"></span></h2>
+        <ul class="task-list" id="task-list"></ul>
+        <div class="add-task">
+          <input type="text" id="new-task-input" placeholder="添加一条额外任务…" />
+          <button id="add-task-btn">＋</button>
+        </div>
+      </div>
+
+      <div class="card">
+        <h2 class="card-title">今日课表</h2>
+        <ul class="schedule-list" id="schedule-list"></ul>
+      </div>
+
+      <div class="card">
+        <h2 class="card-title">今日复盘</h2>
+        <textarea id="reflection" placeholder="今天完成了什么？明天重点是什么？一句话即可。"></textarea>
+      </div>
+    </section>
+
+    <!-- ============ 计划 ============ -->
+    <section class="view" id="view-plan">
+      <div class="card">
+        <h2 class="card-title">76 天倒排总览（以终为始）</h2>
+        <div id="phase-list"></div>
+      </div>
+      <div class="card">
+        <h2 class="card-title">查看某一天</h2>
+        <div class="day-picker">
+          <button id="day-prev">‹</button>
+          <input type="date" id="day-picker" />
+          <button id="day-next">›</button>
+        </div>
+        <div id="day-detail"></div>
+      </div>
+    </section>
+
+    <!-- ============ 各科 ============ -->
+    <section class="view" id="view-subjects">
+      <div class="card">
+        <h2 class="card-title">各科目标（400+）</h2>
+        <div id="subject-list"></div>
+      </div>
+      <div class="card tips-card">
+        <h2 class="card-title">第一性原理 · 取舍提醒</h2>
+        <ul class="tips-list" id="tips-list"></ul>
+      </div>
+    </section>
+
+    <!-- ============ 设置 ============ -->
+    <section class="view" id="view-settings">
+      <div class="card">
+        <h2 class="card-title">考试日期</h2>
+        <input type="date" id="exam-date" />
+        <p class="muted">默认 2026-12-19，改这里倒计时会跟着变。</p>
+      </div>
+      <div class="card">
+        <h2 class="card-title">数据备份</h2>
+        <p class="muted">勾选进度只存在本机浏览器里，建议每周导出一份。</p>
+        <div class="btn-row">
+          <button class="btn" id="export-btn">导出备份</button>
+          <button class="btn secondary" id="import-btn">从文件导入</button>
+        </div>
+        <input type="file" id="import-file" accept="application/json,.json" hidden />
+        <textarea id="import-text" placeholder="或把备份内容粘贴到这里，再点下方按钮导入…"></textarea>
+        <button class="btn secondary" id="paste-import-btn" style="margin-top:8px;">从粘贴内容导入</button>
+      </div>
+      <div class="card">
+        <h2 class="card-title">安装到手机</h2>
+        <p class="muted" id="install-hint"></p>
+      </div>
+      <div class="card">
+        <h2 class="card-title">关于</h2>
+        <p class="muted">西财金融专硕 431 · 目标 400+ · 倒计时从 2026-10-04 起 76 天。<br/>以终为始 · 主攻真题 · 每天定量。</p>
+      </div>
+    </section>
+  </main>
+
+  <nav class="bottom-nav">
+    <button class="nav-btn active" data-view="today">今日</button>
+    <button class="nav-btn" data-view="plan">计划</button>
+    <button class="nav-btn" data-view="subjects">各科</button>
+    <button class="nav-btn" data-view="settings">设置</button>
+  </nav>
+
+  <script src="plan.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
